@@ -19,7 +19,7 @@ public class test {
 	@BeforeSuite
 	public void startContainer() throws InterruptedException
 	{
-		commonMethods.runTerminalCommand("docker-compose -f docker-compose.yml up","Docker Container is UP");
+		commonMethods.runTerminalCommand("docker-compose up","Docker Container is UP");
 		Thread.sleep(10000);
 		System.out.println("Docker Container is UP....");
 	}
