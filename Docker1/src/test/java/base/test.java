@@ -24,7 +24,7 @@ public class test {
 		System.out.println("Docker Container is UP....");
 	}
 
-	@Test
+	@Test(priority=1)
 	public void firstTest() throws InterruptedException, MalformedURLException {
 
 		WebDriver driver;
@@ -34,6 +34,38 @@ public class test {
 		cap.setBrowserName("firefox");
 		cap.setPlatform(Platform.LINUX);
 		driver= new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),cap);
+
+		// Launch Website  
+		driver.navigate().to("http://www.google.com");  
+
+		Thread.sleep(5000);
+		//Maximize the browser  
+		driver.manage().window().maximize();  
+		Thread.sleep(3000);
+
+		// Click on the Search button  
+		driver.findElement(By.className("gLFyf")).sendKeys("iphone 14"+Keys.ENTER);
+		Thread.sleep(30000);
+		Assert.assertTrue(driver.getCurrentUrl().contains("iphone"));
+
+		//Quiting the driver
+		driver.quit();
+
+		//Console printing logs
+		System.out.println("Program exited....");
+
+	}
+	
+	@Test(priority=2)
+	public void secondTest() throws InterruptedException, MalformedURLException {
+
+		WebDriver driver;
+		
+		//Adding desired capabilities
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setBrowserName("chorme");
+		cap.setPlatform(Platform.LINUX);
+		driver= new RemoteWebDriver(new URL("http://localhost:4441/wd/hub"),cap);
 
 		// Launch Website  
 		driver.navigate().to("http://www.google.com");  

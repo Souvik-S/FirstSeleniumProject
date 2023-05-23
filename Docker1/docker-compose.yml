@@ -7,6 +7,12 @@ services:
     image: selenium/standalone-firefox
     hostname : firefox
     shm_size: 2gb
-    ports:
       - "4444:4444"
       - "7900:7900"
+  chrome:
+    image: selenium/standalone-chrome
+    hostname : chrome
+    shm_size: 2gb
+    ports:
+      - "4445:4444"
+      - "7901:7900"
