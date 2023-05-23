@@ -9,6 +9,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class test {
@@ -35,6 +36,7 @@ public class test {
 		// Click on the Search button  
 		driver.findElement(By.className("gLFyf")).sendKeys("iphone 14"+Keys.ENTER);
 		Thread.sleep(30000);
+		Assert.assertTrue(driver.getCurrentUrl().contains("iphone"));
 
 		//Quiting the driver
 		driver.quit();
