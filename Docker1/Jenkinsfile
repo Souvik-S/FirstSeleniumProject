@@ -16,7 +16,6 @@ pipeline {
         stage('Post-Test') {
             steps {
                 echo 'Deploying....'
-                emailext body: 'Jenkins Pipeline Build ran , please check reports', subject: 'Jenkins Pipeline Build', to: 'souviks@mindfiresolutions.com'
             }
         }
     }
