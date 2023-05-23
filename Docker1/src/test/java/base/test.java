@@ -10,9 +10,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 public class test {
+	
+	@BeforeSuite
+	public void startContainer() throws InterruptedException
+	{
+		commonMethods.runTerminalCommand("docker-compose -f docker-compose.yml up","Docker Container is UP");
+		Thread.sleep(10000);
+		System.out.println("Docker Container is UP....");
+	}
 
 	@Test
 	public void firstTest() throws InterruptedException, MalformedURLException {
@@ -45,4 +55,14 @@ public class test {
 		System.out.println("Program exited....");
 
 	}
+	
+	
+	@AfterSuite
+	public void stopContainer() throws InterruptedException
+	{
+		commonMethods.runTerminalCommand("docker-compose down","Docker Container is DOWN");
+		Thread.sleep(10000);
+		System.out.println("Docker Container is DOWN....");
+	}
+
 }

@@ -5,7 +5,9 @@
     <classes>
       <class name="base.test">
         <methods>
+          <include name="startContainer"/>
           <include name="firstTest"/>
+          <include name="stopContainer"/>
         </methods>
       </class> <!-- base.test -->
     </classes>
