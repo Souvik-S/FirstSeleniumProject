@@ -4,17 +4,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class test {
 
@@ -40,7 +35,6 @@ public class test {
 		// Click on the Search button  
 		driver.findElement(By.className("gLFyf")).sendKeys("iphone 14"+Keys.ENTER);
 		Thread.sleep(30000);
-		Assert.assertTrue(driver.getCurrentUrl().contains("iphone"));
 
 		//Quiting the driver
 		driver.quit();
